@@ -14,8 +14,8 @@ ext {
         lifecycle = '2.2.0',
         koin_version = '2.1.6',
         retrofit = '2.9.0',
-        rx_relay = '3.0.0',
-        rx_android = '3.0.0',
+        rx_relay = '2.1.1',
+        rx_android = '2.1.1',
         rxtrash = '1.0.3',
         okhttp = '4.8.0',
     ]
