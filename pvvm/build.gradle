@@ -1,4 +1,4 @@
-apply plugin: 'com.android.application'
+apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
@@ -9,7 +9,6 @@ android {
 
     compileSdkVersion androidConfiguration.compileSdkVersion
     defaultConfig {
-        applicationId "com.kaancelen.pvvmskeleton"
         minSdkVersion androidConfiguration.minSdkVersion
         targetSdkVersion androidConfiguration.targetSdkVersion
 
@@ -20,14 +19,6 @@ android {
         }
     }
 
-    buildTypes {
-        release {
-            minifyEnabled false
-            shrinkResources false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
     compileOptions {
         sourceCompatibility = 1.8
         targetCompatibility = 1.8
@@ -35,18 +26,19 @@ android {
 
     packagingOptions {
         exclude '**/*.txt'
-        exclude("META-INF/*.kotlin_module")
     }
 
     dataBinding {
         enabled = true
     }
+
+    androidExtensions {
+        experimental = true
+    }
 }
 
 dependencies {
     implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation project(path: ':pvvm')
-
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation "androidx.appcompat:appcompat:$appcompat"
     implementation "androidx.core:core-ktx:$corektx"
