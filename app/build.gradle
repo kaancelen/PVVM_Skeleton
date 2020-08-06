@@ -41,6 +41,21 @@ android {
     dataBinding {
         enabled = true
     }
+
+    flavorDimensions "default"
+    productFlavors {
+        DEV {
+            applicationIdSuffix ".dev"
+        }
+        TEST {
+            applicationIdSuffix ".test"
+        }
+        INT {
+            applicationIdSuffix ".int"
+        }
+        PROD {
+        }
+    }
 }
 
 dependencies {
